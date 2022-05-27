@@ -1,0 +1,27 @@
+{
+  "name": "10_teal-titanium-husky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaguilar95/teal-titanium-husky.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaguilar95/teal-titanium-husky/issues"
+  },
+  "homepage": "https://github.com/jaguilar95/teal-titanium-husky#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^28.1.0"
+  }
+}
