@@ -1,5 +1,5 @@
 const generateManager = (name, id, email, phone) => {
-  return `       <!-- Manager Mock -->
+  return `<!-- Manager -->
         <div class="col-3">
           <div class="card" style="width: 18rem">
             <div class="card-header">
@@ -13,7 +13,7 @@ const generateManager = (name, id, email, phone) => {
               <li class="list-group-item">
                 Email:
                 <a href="mailto:${email}" class="link-primary"
-                  >:${email}</a
+                  >${email}</a
                 >
               </li>
               <li class="list-group-item">Phone: ${phone}</li>
@@ -31,7 +31,7 @@ const generateEngineers = (staffArr) => {
     return "";
   }
 
-  return `<!-- Engineer Mock -->
+  return `<!-- Engineers -->
         ${staffArr
           .filter(({ staffType }) => staffType == "Engineer")
           .map(
@@ -79,7 +79,7 @@ const generateInterns = (staffArr) => {
     return "";
   }
 
-  return `<!-- Intern Mocks -->
+  return `<!-- Intern -->
     ${staffInterns
       .map(({ internName, internId, internEmail, internSchool }) => {
         return `
@@ -140,10 +140,12 @@ const generatePage = (templateData) => {
       <div class="container mt-5">
         <div class="row justify-content-center">
           ${generateManager(managerName, managerId, managerEmail, managerPhone)}
+          
+          ${generateEngineers(staff)}
+
+          ${generateInterns(staff)}
         </div>
       </div>
-      ${generateEngineers(staff)}
-      ${generateInterns(staff)}
       <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
@@ -154,43 +156,4 @@ const generatePage = (templateData) => {
       `;
 };
 
-const dummy = {
-  managerName: "Josue",
-  managerId: "1",
-  managerEmail: "1@email.com",
-  managerPhone: "111 111 1111",
-  staff: [
-    {
-      staffType: "Engineer",
-      engineerName: "Carlos",
-      engineerId: "2",
-      engineerEmail: "2@email.com",
-      engineerGithub: "carlos2",
-    },
-    {
-      staffType: "Engineer",
-      engineerName: "Trevor",
-      engineerId: "3",
-      engineerEmail: "3@email.com",
-      engineerGithub: "trevor3",
-    },
-    {
-      staffType: "Intern",
-      internName: "Daniel",
-      internId: "4",
-      internEmail: "4@email.com",
-      internSchool: "4school",
-    },
-    {
-      staffType: "Intern",
-      internName: "Isaac",
-      internId: "5",
-      internEmail: "5@email.com",
-      internSchool: "5school",
-    },
-  ],
-};
-
-const dummyPage = generatePage(dummy);
-
-console.log(dummyPage);
+module.exports = generatePage;
